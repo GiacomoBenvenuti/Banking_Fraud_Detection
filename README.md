@@ -25,18 +25,15 @@ They plan to have a small team of fraud analysts who review risky-looking purcha
 ---
 
 ## Approach
-
 The goal of this study is the selection of a machine learning pipeline to predict the probability of future frauds based on trasactions features. 
 
-I created many diffent new features and tested several classification algorithms (supervised and unsupervised). 
+After exploring the data, I created many diffent new features and tested five classification algorithms. Some new features were created using unsupervised algorithms.  
 
 I found that a Random Forest Classifier produces the best performance. 
 
 I optimized the hyperparameters of this classifier and estimated the performance on the test set. 
 
-Overall, using this model our client will detect 15 times more frauds than by randomly selecting the transactions to check. 
-
-We also start optimizing a shallow neural network for the same task, but for now it underperforms the Random Foreset classifier.  
+I also start optimizing a shallow neural network for the same task, but for now it underperforms the Random Foreset classifier.
 
 ## Results 
 By randomly selecting 400 transactions out of 10.000 each month, the client was able to detect less than the 2% of the total frauds, on average (Fig. below, left box). 
