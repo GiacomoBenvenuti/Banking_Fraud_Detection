@@ -26,27 +26,36 @@ They plan to have a small team of fraud analysts who review risky-looking purcha
 
 ## Approach
 
-1) Data importation and formatting
+The goal of this study is the selection of a machine learning pipeline to predict the probability of future frauds based on trasactions features. 
 
-2) Data exploration and visualization 
+I created many diffent new features and tested several classification algorithms (supervised and unsupervised). 
 
-3) Data splitting and feature engineering 
+I found that a Random Forest Classifier produces the best performance. 
 
-4) Testing of 5 different classifiers and selection of the best model
+I optimized the hyperparameters of this classifier and estimated the performance on the test set. 
 
-6) Hyperparameter optimization 
+Overall, using this model our client will detect 15 times more frauds than by randomly selecting the transactions to check. 
 
-5) Estimation of best model performance on test set 
+We also start optimizing a shallow neural network for the same task, but for now it underperforms the Random Foreset classifier.  
 
-6) Testing of a Neural Network
+## Results 
+By randomly selecting 400 transactions out of 10.000 each month, the client was able to detect less than the 2% of the total frauds, on average (Fig. below, left box). 
 
-## Conclusion
-By randomly selecting 400 transactions out of 10.000 each month, the client was able to detect less than the 2% of the total frauds, on average. 
+Using the ML pipeline I provide, the client will be able to detect 15 times more frauds (30% of the total, Fig. below central box). 
 
-Using the ML pipeline I provide, the costumer will be able to detect 15 times more frauds (30% of the total). 
+If the test set was sampled over the same period of time as the training set (by cross-validation) instead of from a period in the future, the performance of the model would be 3 times better (91%, Fig. below right box).  
 
-These results are pretty good considering that the fraudsters constantly optimize their strategies to escape anomaly detection algorithms. 
+![SummFig](figures/SummFig_RF.png)
 
+>Figure 3 | Performance of the model on the test set. 
+(**left box**) Fraud detected without the model but picking 400 random transactions out of 10.000. I created 20 test sets (10.000 trans. each) by bootstrapping the last two months of the dataset (20.000 trans.). (**central box**) Fraud detected in trasactions from a period in the future (extrapolation). Same as the left box but now we use the model to select the transactions most likely to be a fraud. (**right box**) Fraud detected in transactions from the same period as the training set (interpolation). I selected 20.000 transactions from the same period of the training set by cross-validation and then I generated 20 test sets using bootstrapping. >  
 
+## Discussion 
+This classification task is challenging for many reasons: 
+- the unbalance in the target categories (only 1% of frauds)
+- the very high detection threshold required by the client (we need to select 400 trials out of 10.000)
+- fraudsters constantly optimize their strategy to escape anomaly detection strategies
+- Since we train the model over a certain period of time and then predict frauds from a period in the future, this is an extrapolation problem. Since the regularities that we need to learn to make predictions change across time, generalization is more difficult than in simpler interporlation problems. We show that if this was an interpolation problem our model would detect 3 times more frauds. This confirms that the model does a pretty good job in predicting new frauds. The limitations in its performance depend on the variability of the data across time. 
 
-
+## Conclusions
+Despite the challanges of the task summarized above, the ML pipeline I provide will allow the client to detect 15 times more frauds! 
