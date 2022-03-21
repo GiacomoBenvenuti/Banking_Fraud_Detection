@@ -42,10 +42,12 @@ Using the ML pipeline I provide, the client will be able to detect 15 times more
 
 If the test set was sampled over the same period of time as the training set (by cross-validation) instead of from a period in the future, the performance of the model would be 3 times better (91%, Fig. below right box).  
 
-![SummFig](figures/SummFig_RF.png)
+<p align="center">
+  <img src="figures/SummFig_RF.png" />
+</p>
 
->Figure 3 | Performance of the model on the test set. 
-(**left box**) Fraud detected without the model but picking 400 random transactions out of 10.000. I created 20 test sets (10.000 trans. each) by bootstrapping the last two months of the dataset (20.000 trans.). (**central box**) Fraud detected in trasactions from a period in the future (extrapolation). Same as the left box but now we use the model to select the transactions most likely to be a fraud. (**right box**) Fraud detected in transactions from the same period as the training set (interpolation). I selected 20.000 transactions from the same period of the training set by cross-validation and then I generated 20 test sets using bootstrapping. >  
+>**Figure 3 | Performance of the model on the test set.** 
+(**left box**) Fraud detected without the model but picking 400 random transactions out of 10.000. I created 20 test sets (10.000 trans. each) by bootstrapping the last two months of the dataset (20.000 trans.). (**central box**) Fraud detected in trasactions from a period in the future (extrapolation). Same as the left box but now we use the model to select the transactions most likely to be a fraud. (**right box**) Fraud detected in transactions from the same period as the training set (interpolation). I selected 20.000 transactions from the same period of the training set by cross-validation and then I generated 20 test sets using bootstrapping.   
 
 ## Discussion 
 This classification task is challenging for many reasons: 
