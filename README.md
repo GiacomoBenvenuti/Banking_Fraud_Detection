@@ -6,7 +6,7 @@ by Giacomo Benvenuti
 ---
 
 
-[OPEN THE NOTEBOOK IN GITHUB BY CLICKING HERE](https://github.com/GiacomoBenvenuti/Banking_Fraud_Detection/blob/9b534679b42236a5caa908f85fc6f7e764dbab04/Fraud_detection_Main.ipynb)
+[OPEN THE NOTEBOOK IN GITHUB BY CLICKING HERE](https://github.com/GiacomoBenvenuti/Banking_Fraud_Detection/blob/main/Fraud_detection_Main.ipynb)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GiacomoBenvenuti/Banking_Fraud_Detection/blob/main/Fraud_detection_Main.ipynb)
 
